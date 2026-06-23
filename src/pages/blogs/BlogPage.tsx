@@ -8,7 +8,6 @@ export default function BlogPage(){
   const {id}= useParams()
   const [scrollProgress, setScrollProgress] = useState(0);
   const [blog, setBlog] = useState<any>({});
-  console.log(setBlog);
   useEffect(() => {
   const handleScroll = () => {
     const totalHeight =
@@ -39,7 +38,7 @@ const fetchPost = async () => {
     console.log(e)
   }
 }
-const [darkMode, setDarkMode]=useState(()=> {return localStorage.getItem("theme")==="dark"} );
+const [darkMode]=useState(()=> {return localStorage.getItem("theme")==="dark"} );
   useEffect(()=>{
     if (darkMode) {
       localStorage.setItem("theme","dark");
