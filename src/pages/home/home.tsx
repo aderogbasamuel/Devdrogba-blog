@@ -7,10 +7,10 @@ interface BlogProps {
   blog: Blog;
 }
 
-function Greeting() {
-  const name = "Samuel";
-  return <h1>Welcome, {name}</h1>;
-}
+// function Greeting() {
+//   const name = "Samuel";
+//   return <h1>Welcome, {name}</h1>;
+// }
 
 function BlogCard({ blog }: BlogProps) {
   const formatDate = (date: string | number | Date) => {
