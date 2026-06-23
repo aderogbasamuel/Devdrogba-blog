@@ -8,6 +8,7 @@ export default function BlogPage(){
   const {id}= useParams()
   const [scrollProgress, setScrollProgress] = useState(0);
   const [blog, setBlog] = useState<any>({});
+  console.log(setBlog);
   useEffect(() => {
   const handleScroll = () => {
     const totalHeight =
