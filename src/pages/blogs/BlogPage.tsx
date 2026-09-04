@@ -298,7 +298,7 @@ export default function BlogPage() {
         </div>
 
         {/* Title */}
-        <h1 className="post-title">
+        <h1 className="post-title text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 dark:text-white">
           {blog.title}
         </h1>
 
