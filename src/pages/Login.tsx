@@ -24,16 +24,22 @@ const Login = () => {
       await login(email, password);
 
       navigate("/");
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
-        setError(
-          error.response?.data?.message ||
-            "Invalid email or password"
-        );
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } finally {
+    }  catch (error: unknown) {
+  if (axios.isAxiosError(error)) {
+    console.log("FULL ERROR:", error);
+    console.log("STATUS:", error.response?.status);
+    console.log("DATA:", error.response?.data);
+    console.log("MESSAGE:", error.response?.data?.message);
+
+    setError(
+      error.response?.data?.message ||
+        "Invalid email or passwordm"
+    );
+  } else {
+    console.log("NON-AXIOS ERROR:", error);
+    setError("Something went wrong. Please try again.");
+  }
+} finally {
       setLoading(false);
     }
   };

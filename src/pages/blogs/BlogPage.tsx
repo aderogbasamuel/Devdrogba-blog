@@ -156,7 +156,7 @@ export default function BlogPage() {
       setLikeLoading(true);
 
       const response = await fetch(
-        `https://blogsite-bdkx.onrender.com/api/posts/${blog._id}/like`,
+        `http://localhost:5000/api/posts/${blog._id}/like`,
         {
           method: "POST",
           headers: {

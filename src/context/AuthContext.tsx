@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       if (!token) {
         setLoading(false);
+        console.log("No token found, user is not logged in.");
         return;
       }
 
@@ -83,19 +84,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   // Login
   const login = async (email: string, password: string) => {
-    const response = await api.post("/auth/login", {
-      email,
-      password,
-    });
+  console.log("LOGIN REQUEST:", email);
 
-    const token = response.data.token;
+  const response = await api.post("/auth/login", {
+    email,
+    password,
+  });
 
-    localStorage.setItem("token", token);
+  console.log("LOGIN RESPONSE:", response.data);
 
-    await getMe();
+  const token = response.data.token;
 
-    return response.data;
-  };
+  localStorage.setItem("token", token);
+
+  await getMe();
+
+  return response.data;
+};
 
   // Logout
   const logout = () => {
