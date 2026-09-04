@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const { useState, useEffect } = React;
 import type { Blog } from "../../interfaces/Blog";
 import Header from "./components/Header.tsx";
+import AppWrapper from "../../components/AppWrapper.tsx";
 interface BlogProps {
   blog: Blog;
 }
@@ -95,7 +96,8 @@ function Home() {
     <div className={darkMode ? "dark" : ""}>
       <div className="herosec">
         <div className="herograd">
-          <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* <Header darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+          <AppWrapper>
           <section className="hero pt-[60px] pb-[50px] flex flex-col sm:text-center">
             <div className="w-fit rounded-full border-[3px] border-[var(--border)] px-[18px] py-[10px] font-black text-[0.8rem] text-[var(--text)] shadow-[4px_4px_0_var(--border)]">
   PERSONAL TECH • DIGITAL THOUGHTS • INNOVATION
@@ -113,6 +115,7 @@ function Home() {
               <button className="secondary">View Projects</button>
             </div>
           </section>
+          </AppWrapper>
         </div>
       </div>
 

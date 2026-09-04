@@ -113,7 +113,9 @@ header {
   font-weight: 800;
   cursor: pointer;
 }
-
+.nav .text-theme {
+  color: var(--text);
+}
 .theme-toggle {
   background: var(--card);
   border: 1px solid var(--border);
