@@ -84,14 +84,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   // Login
   const login = async (email: string, password: string) => {
-  console.log("LOGIN REQUEST:", email);
 
   const response = await api.post("/auth/login", {
     email,
     password,
   });
-
-  console.log("LOGIN RESPONSE:", response.data);
 
   const token = response.data.token;
 
