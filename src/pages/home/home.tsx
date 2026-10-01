@@ -31,8 +31,8 @@ const formatDate = (date: string | number | Date) =>
     day: "numeric",
   });
 
-const excerpt = (html: string, max = 110) => {
-  const plain = html.replace(/<[^>]*>/g, "").trim();
+const excerpt = (html?: string, max = 110) => {
+  const plain = (html ?? "").replace(/<[^>]*>/g, "").trim();
   return plain.length > max ? plain.slice(0, max).trimEnd() + "…" : plain;
 };
 
@@ -52,10 +52,12 @@ function BlogCard({ blog }: { blog: Blog }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-center gap-2 text-xs text-[var(--muted)]">
-          <span className="rounded-full border border-[var(--border)] px-2.5 py-0.5 font-medium text-[var(--text)]">
-            {blog.category}
-          </span>
-          <span>{formatDate(blog.createdAt)}</span>
+          {blog.category && (
+            <span className="rounded-full border border-[var(--border)] px-2.5 py-0.5 font-medium text-[var(--text)]">
+              {blog.category}
+            </span>
+          )}
+          <span>{blog.createdAt ? formatDate(blog.createdAt) : ""}</span>
         </div>
         <h3 className="text-lg font-semibold leading-snug tracking-tight text-[var(--text)]">
           {blog.title}
@@ -128,7 +130,7 @@ function Blogs() {
 
 function Home() {
   const [darkMode, setDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark"
+    () => localStorage.getItem("theme") === "dark",
   );
 
   useEffect(() => {
